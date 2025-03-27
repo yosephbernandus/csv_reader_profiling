@@ -18,4 +18,6 @@ uv run csv_to_sqlite_profiling.py --csv sample2.csv
 uv run csv_to_postgres_profiling.py --csv sample2.csv --dbname <db_name> --user <user> --password <password>
 ```
 
+## Useful resource
+- CSV file https://github.com/datablist/sample-csv-fil
 
