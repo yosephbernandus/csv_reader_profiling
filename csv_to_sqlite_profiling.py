@@ -8,7 +8,6 @@ import os
 import time
 import csv
 import sqlite3
-import tempfile
 import psutil
 import gc
 import argparse
@@ -18,7 +17,7 @@ import numpy as np
 
 # Import the Rust CSV parser
 try:
-    from csv_reader import FastCSVParser
+    from csv_reader import CSVParser
 
     RUST_AVAILABLE = True
 except ImportError:
@@ -218,7 +217,7 @@ class CSVtoSQLiteProfiler:
         cursor = conn.cursor()
 
         # Setup parser
-        parser = FastCSVParser(self.csv_file, self.batch_size)
+        parser = CSVParser(self.csv_file, self.batch_size)
         batches = parser.read()
 
         rows_processed = 0

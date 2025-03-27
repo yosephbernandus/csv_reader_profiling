@@ -17,9 +17,9 @@ import tempfile
 
 # Import the Rust CSV parser - adjust the import based on your module name
 try:
-    from csv_reader import FastCSVParser
+    from csv_reader import CSVParser
 except ImportError as e:
-    print(f"Could not import FastCSVParser: {e}")
+    print(f"Could not import CSVParser: {e}")
     print("Make sure you've built and installed the Rust library correctly.")
     print("Continuing with Python parsers only...")
     RUST_AVAILABLE = False
@@ -157,8 +157,8 @@ class Profiler:
         return total_rows
 
     def rust_parser(self):
-        """Parse CSV using the Rust FastCSVParser."""
-        parser = FastCSVParser(self.csv_path, self.batch_size)
+        """Parse CSV using the Rust CSVParser."""
+        parser = CSVParser(self.csv_path, self.batch_size)
         batches = parser.read()
         return batches
 

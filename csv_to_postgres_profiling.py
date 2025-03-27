@@ -17,7 +17,7 @@ import tempfile
 
 # Import the Rust CSV parser
 try:
-    from csv_reader import FastCSVParser
+    from csv_reader import CSVParser
 
     RUST_AVAILABLE = True
 except ImportError:
@@ -155,7 +155,7 @@ import tempfile
 
 # Import the Rust CSV parser
 try:
-    from csv_reader import FastCSVParser
+    from csv_reader import CSVParser
 
     RUST_AVAILABLE = True
 except ImportError:
@@ -423,7 +423,7 @@ class CSVtoPostgresProfiler:
         cursor = conn.cursor()
 
         # Setup parser
-        parser = FastCSVParser(self.csv_file, self.batch_size)
+        parser = CSVParser(self.csv_file, self.batch_size)
         batches = parser.read()
 
         rows_processed = 0
